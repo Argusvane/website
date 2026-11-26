@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .ground { fill: #111111; }
+    .line { stroke: #E9E6DF; }
+    @media (prefers-color-scheme: dark) {
+      .ground { fill: #E9E6DF; }
+      .line { stroke: #111111; }
+    }
+  </style>
+  <rect class="ground" width="64" height="64"/>
+  <g transform="translate(-21 4) scale(0.53)">
+    <path class="line" d="M100 6 C138 36 138 84 100 100 C62 84 62 36 100 6 Z" fill="none" stroke-width="10" stroke-linejoin="miter"/>
+    <circle cx="100" cy="62" r="15" fill="#FF4F00"/>
+  </g>
+</svg>
