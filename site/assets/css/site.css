@@ -249,12 +249,18 @@ section[id], main[id] { scroll-margin-top: 16px; }
   92%, 100% { transform: translateY(0); }
 }
 
-/* The mark draws itself once on load. */
+/* The mark draws itself once on load. The dash is removed on the last frame:
+   while a path is dashed, its start and end are capped, not joined, which
+   leaves a notch at the feather's tip. */
 @media (prefers-reduced-motion: no-preference) {
-  .draw .f-line { stroke-dasharray: 1; animation: draw 1.5s ease-out both; }
+  .draw .f-line { animation: draw 1.5s ease-out both; }
   .draw .f-pupil { transform-box: fill-box; transform-origin: center; animation: appear 0.35s 1.4s ease-out both; }
 }
-@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes draw {
+  from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  99.9% { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  to { stroke-dasharray: none; stroke-dashoffset: 0; }
+}
 @keyframes appear { from { transform: scale(0); } to { transform: scale(1); } }
 
 /* The closing lines. */
